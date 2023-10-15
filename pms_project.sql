@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Aug 06, 2023 at 11:33 PM
--- Server version: 5.6.51-log
--- PHP Version: 7.4.26
+-- Host: localhost
+-- Generation Time: Oct 15, 2023 at 08:29 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,23 +27,20 @@ SET time_zone = "+00:00";
 -- Table structure for table `tasks`
 --
 
-DROP TABLE IF EXISTS `tasks`;
-CREATE TABLE IF NOT EXISTS `tasks` (
+CREATE TABLE `tasks` (
   `TID` varchar(20) NOT NULL,
   `username` varchar(128) NOT NULL,
   `task` varchar(256) NOT NULL,
   `status` varchar(28) NOT NULL,
-  `UID` varchar(20) NOT NULL,
-  PRIMARY KEY (`TID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `UID` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`TID`, `username`, `task`, `status`, `UID`) VALUES
-('TID20230806103932681', 'Prasant Chandra Poddar', 'Remove bugs from navbar section.', 'In progress', 'UID20230806102830786'),
-('TID20230807040852006', 'Brajesh Kumar', 'Remove extra spaces from menu bar.', 'Completed', 'UID20230807031646273');
+('TID20231015133137503', 'Arslan Ahmad ', 'video conferencing site', 'In progress', 'UID20231015132919636');
 
 -- --------------------------------------------------------
 
@@ -51,21 +48,33 @@ INSERT INTO `tasks` (`TID`, `username`, `task`, `status`, `UID`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `UID` varchar(20) NOT NULL,
-  `username` varchar(128) NOT NULL,
-  PRIMARY KEY (`UID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `username` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`UID`, `username`) VALUES
-('UID20230806102830786', 'Prasant Chandra Poddar'),
-('UID20230806103756294', 'Pritam Chandra Poddar'),
-('UID20230807031646273', 'Brajesh');
+('UID20231015133325499', 'Arslan Ahmad ');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`TID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`UID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
